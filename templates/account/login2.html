@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<div class = "row text-center vertical-middle-sm">
+    <h1>Login--built in Method of Django</h1>
+
+    {% if form.errors %}
+        <p>Your username and password didn't match.Please try again.</p>
+    {%  endif  %}
+    {% if is_register %}
+        <p>register success</p>
+    {% endif %}
+    <p>Input your username and password</p>
+    {%  if next  %}
+    <form class="form-horizontal" action="{%  url 'account:user_login' %}?next={{ next }}" method="post">
+    {%  else  %}
+    <form class="form-horizontal" action="{%  url 'account:user_login' %}" method="post">
+    {% endif %}
+        {% csrf_token %}
+
+        <!--{{ form.as_p }}-->
+        <div class="form-group">
+            <label for = "{{ form.username.id_for_label }}" class="col-md-5 control-label" style="color:red">
+                <span class="glyphicon glyphicon-user"></span>Username
+            </label>
+            <div class="col-md-6 text-left">{{ form.username }}<h5>没有账号？ 点击<a href='{% url 'account:user_register' %}'>注册账号</a></h5></div>
+        </div>
+
+        <div class="form-group">
+            <label for = "{{ form.password.id_for_label }}" class="col-md-5 control-label" style="color:blue">
+                <span class="glyphicon glyphicon-floppy-open"></span>Password
+            </label>
+            <div class="col-md-6 text-left">{{ form.password }}<h5> 忘记密码了？点击<a href='{% url 'account:password_reset' %}'>重置密码</a></h5></div>
+
+        </div>
+        <input type="submit" class="btn btn-primary btn-lg"  value="Login">
+    </form>
+</div>
+{% endblock %}
