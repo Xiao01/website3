@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'account.apps.AccountConfig',
-    'article.apps.ArticleConfig'
+    'article.apps.ArticleConfig',
+    'image',
+    'sorl.thumbnail',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +59,7 @@ ROOT_URLCONF = 'website3.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates/'),],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
         'APP_DIRS': True,
         #'LOADERS':'django.template.loaders.app_directories.Loader',
         'OPTIONS': {
@@ -83,7 +85,16 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+#DATABASES = {
+#    'default':{
+#        'ENGINE':'django.db.backends.postgresql_psycopg2',
+#        'NAME':'blog',#数据库名字
+#        'USER':'username',#登录用户名
+#        'PASSWORD':'qwer1234',
+#        'HOST':'127.0.0.1',#数据库IP地址
+#        'PORT':'5432',
+#    }
+#}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -151,3 +162,11 @@ EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = '18923739360@163.com'
 
 
+#redis配置
+REDIS_HOST='localhost'
+REDIS_PORT = 6379
+REDIS_DB = 0
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media/')

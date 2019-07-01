@@ -57,12 +57,4 @@ class UserProfileForm(forms.ModelForm):
         model = UserProfile
         fields = ("phone","birth")
 
-class UserInfoForm(forms.ModelForm):
-    class Meta:
-        model = UserInfo
-        fields = ("school","company","profession","address","aboutme","photo")
 
-class UserForm(forms.ModelForm):
-    class Meta:
-        model =User
-        fields = ("email",)
