@@ -31,6 +31,7 @@ urlpatterns = [
     path('account/', include('account.urls',namespace='account')),
     path('article/',include('article.urls',namespace='article')),
     path('image/',include('image.urls',namespace='image')),
+    path('course/',include('course.urls',namespace='course')),
 
     url(r'^static/(?P<path>.*)$', static.serve,
         {'document_root': settings.STATIC_ROOT}, name='static'),
@@ -39,5 +40,7 @@ urlpatterns = [
 
 ];
 
+
 from django.conf.urls.static import static as staic1
 urlpatterns += staic1(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+

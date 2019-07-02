@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'article.apps.ArticleConfig',
     'image',
     'sorl.thumbnail',
+    'course.apps.CourseConfig',
 ]
 
 MIDDLEWARE = [
@@ -169,4 +170,4 @@ REDIS_DB = 0
 
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
