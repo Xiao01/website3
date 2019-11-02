@@ -7,7 +7,7 @@ django-password-reset==2.0
 docopt==0.6.2
 idna==2.8
 Markdown==3.1.1
-Pillow==6.0.0
+Pillow==6.2.0
 pipreqs==0.4.9
 psycopg2==2.8.3
 pytz==2019.1
