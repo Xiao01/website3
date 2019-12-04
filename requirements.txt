@@ -1,7 +1,7 @@
 awesome-slugify==1.6.5
 certifi==2019.3.9
 chardet==3.0.4
-Django==2.2.1
+Django==2.2.8
 django-braces==1.13.0
 django-password-reset==2.0
 docopt==0.6.2
